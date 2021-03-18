@@ -56,7 +56,6 @@ printf "$g$b    Installing Other Tools $endc$enda" >&2
 {
     sudo apt install nautilus nano -y
     sudo apt-get install gdebi -y
-    sudo apt-get install vim -y
     sudo apt-get install build-essential cmake libuv1-dev libssl-dev libhwloc-dev libmicrohttpd-dev -y
     sudo apt install ethereum -y
 } &> /dev/null &&
