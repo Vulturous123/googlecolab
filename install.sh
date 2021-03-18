@@ -56,8 +56,8 @@ printf "$g$b    Installing Other Tools $endc$enda" >&2
 {
     sudo apt install nautilus nano -y
     sudo apt-get install gdebi -y
-    sudo apt-get install build-essential cmake libuv1-dev libssl-dev libhwloc-dev libmicrohttpd-dev -y
     sudo apt install ethereum -y
+    sudo apt-get install build-essential cmake libuv1-dev libssl-dev libhwloc-dev libmicrohttpd-dev -y
 } &> /dev/null &&
 printf "\r$c$b    Other Tools Installed $endc$enda\n" >&2 ||
 printf "\r$r$b    Error Occured $endc$enda\n" >&2
