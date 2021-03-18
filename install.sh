@@ -30,11 +30,11 @@ printf "\r$c$b    Chrome Remote Desktop Installed $endc$enda\n" >&2 ||
 # Install Desktop Environment (XFCE4)
 printf "$g$b    Installing Desktop Environment $endc$enda" >&2
 {
-    sudo apt-get install xfce4-terminal -y
     sudo DEBIAN_FRONTEND=noninteractive \
-        apt install --assume-yes xfce4 desktop-base
+        apt install --assume-yes xfce4 desktop-base xfce4-terminal
     sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
-    sudo apt install --assume-yes xscreensaver
+    sudo apt remove --assume-yes gnome-terminal
+    sudo apt instal-y--assume-yes xscreensaver
     sudo systemctl disable lightdm.service
 } &> /dev/null &&
 printf "\r$c$b    Desktop Environment Installed $endc$enda\n" >&2 ||
@@ -51,33 +51,12 @@ printf "$g$b    Installing Google Chrome $endc$enda" >&2
 printf "\r$c$b    Google Chrome Installed $endc$enda\n" >&2 ||
 printf "\r$r$b    Error Occured $endc$enda\n" >&2
 
-# Install OBS Studio
-printf "$g$b    Installing OBS Studio $endc$enda" >&2
-{
-    sudo apt install ffmpeg -y
-    sudo add-apt-repository ppa:obsproject/obs-studio -y
-    sudo apt install obs-studio -y
-    sudo apt install --assume-yes --fix-broken
-} &> /dev/null &&
-printf "\r$c$b    OBS Studio Installed $endc$enda\n" >&2 ||
-printf "\r$r$b    Error Occured $endc$enda\n" >&2
-
-# Install VLC Media Player 
-printf "$g$b    Installing VLC Media Player $endc$enda" >&2
-{
-    sudo apt install vlc -y
-} &> /dev/null &&
-printf "\r$c$b    VLC Media Player Installed $endc$enda\n" >&2 ||
-printf "\r$r$b    Error Occured $endc$enda\n" >&2
-
 # Install other tools
 printf "$g$b    Installing Other Tools $endc$enda" >&2
 {
     sudo apt install nautilus nano -y
     sudo apt-get install gdebi -y
     sudo apt-get install vim -y
-    sudo add-apt-repository --yes ppa:ethereum/ethereum 
-    sudo apt update && sudo apt-get update
     sudo apt-get install build-essential cmake libuv1-dev libssl-dev libhwloc-dev libmicrohttpd-dev -y
     sudo apt install ethereum -y
 } &> /dev/null &&
